@@ -1,0 +1,57 @@
+####################################################
+Book authors with templates
+####################################################
+from django.conf.urls import url
+from . import views
+                    
+urlpatterns = [
+    url(r'^$', views.index),
+    url(r'^books/(?P<idr>\d+)$', views.books),
+    url(r'^process$', views.process),
+    url(r'^authors$', views.authors),
+    url(r'^authors/(?P<idr>\d+)$', views.show_author),
+    url(r'^process/authors$', views.process_author),
+]
+####################################################
+
+####################################################
+apps.apps_name.urls.py
+urlpatterns = [
+    url(r'^$', views.index),
+    url(r'^new$', views.new),
+    url(r'^create$', views.create),
+    url(r'^(?P<number>\d+)$', views.show),
+    url(r'^(?P<number>\d+)/edit$', views.edit),
+    url(r'^(?P<number>\d+)/destroy$', views.destroy),
+]     
+######################################
+
+######################################
+apps.apps_name.views.py
+from django.shortcuts import render, HttpResponse, redirect
+#1
+def index(request):
+    return HttpResponse("placeholder to later display a list of all blogs")
+#2
+def new(request):
+    return HttpResponse("placeholder to later display a new form to create a new blog")
+#3
+def create(request):
+    return redirect("/")
+#4
+def show(request,number):
+    return HttpResponse(f"placeholder to display blog number : {number} ")
+#4
+def edit(request,number):
+    return HttpResponse(f"placeholder to edit blog {number} ")
+#5
+def destroy(request,number):
+    return redirect("/")
+
+some_project/apps/some_app/urls.py (from text book)
+urlpatterns = [
+        url(r'^bears$', views.one_method),                        # would only match localhost:8000/bears
+        url(r'^bears/(?P<my_val>\d+)$', views.another_method),    # would match localhost:8000/bears/23
+        url(r'^bears/(?P<name>\w+)/poke$', views.yet_another),    # would match localhost:8000/bears/pooh/poke
+    	url(r'^(?P<id>[0-9]+)/(?P<color>\w+)$', views.one_more),  # would match localhost:8000/17/brown
+]

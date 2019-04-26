@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h4>{{ author.first_name}} {{ author.last_name}}</h4>
+    <h3>{{ author.id}}</h3>
+    <h3>{{ author.notes }}</h3> 
+    <ul>
+        {% for 1 in author_books %}
+            <li>{{ 1.title }}</li> 
+        {% endfor %}    
+    </ul>
+    <form action="/process/authors" method="post">
+        {% csrf_token %}
+        <select name="book_id">
+                {% for ppp in all_book_titles %}
+                    <option value="{{ ppp.id }}">{{ ppp.title }}</option>
+                {% endfor %}
+        </select>
+        <input type="hidden" name="author_id" value="{{ author.id }}">
+        <input type="submit" value="add">
+    </form>  
+</body>
+</html>

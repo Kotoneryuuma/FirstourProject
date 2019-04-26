@@ -1,0 +1,77 @@
+% Create 5 books %
+Book.objects.create(title="C Sharp", desc="Made by microsoft")
+Book.objects.create(title="Python", desc="I love python")
+Book.objects.create(title="PHP", desc="Used by making website")
+Book.objects.create(title="Ruby", desc="Made in Japan")
+
+% Add a new text field to update the table in your database %
+1,add information on your models.py file
+2,exit()
+3,migrant again
+4,from apps.users_app.models import *
+
+% Change ghe first name of the book name to C## %
+
+book1 = Book.objects.get(id=1)
+book2 = Book.objects.get(id=2)
+book3 = Book.objects.get(id=3)
+book4 = Book.objects.get(id=4)
+book5 = Book.objects.get(id=5)
+
+author1 = Author.objects.get(id=1)
+author2 = Author.objects.get(id=2)
+author3 = Author.objects.get(id=3)
+author4 = Author.objects.get(id=4)
+author5 = Author.objects.get(id=5)
+
+
+book1.title="C##"
+book1.save()
+Book.objects.all().values()
+
+% Change the first name of the 4 th author to Bob %
+author4.first_name = "Bob"
+author4.save()
+Author.objects.all().values()
+
+% Assigbn the third author to the first 4 books %
+
+book1 = Book.objects.get(id=1)
+book2 = Book.objects.get(id=2)
+book3 = Book.objects.get(id=3)
+book4 = Book.objects.get(id=4)
+book5 = Book.objects.get(id=5)
+
+author1 = Author.objects.get(id=1)
+author2 = Author.objects.get(id=2)
+author3 = Author.objects.get(id=3)
+author4 = Author.objects.get(id=4)
+author5 = Author.objects.get(id=5)
+
+author3.books.add(book1,book2,book3,book4)
+author3.books.all().values()
+
+
+% Assign the fourth author to the first 5 books %
+
+author5.books.add(book1,book2,book3,book4,book5)
+author5.books.all().values()
+
+% Retrive all the authors for the 3rd book %
+book3.authors.remove(author1,author2,author3,author4,author5)
+book3.authors.all().values()
+
+% Remove the first author of the 3rd book %
+book3.authors.remove(author1)
+book3.authors.all().values()
+
+% Add the 5 th author as one of the auythors of the 2nd book %
+book2.authors.add(author5)
+book2.authors.all().values()
+
+% Find all the books that 3rd author is part of %
+author3.books.values()
+
+% Find all the authors that contributed to the 5 th book %
+book5.authors.values()
+

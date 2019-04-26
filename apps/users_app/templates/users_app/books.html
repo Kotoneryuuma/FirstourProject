@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+        <h4>{{ book.title}}</h4>
+        <h3>{{ book.id}}</h3>
+        <h3>{{ book.desc}}</h3> 
+        <ul>
+            {% for 1 in author_name %}
+                <li>{{ 1.first_name }} {{ 1.last_name }} </li> 
+            {% endfor %}    
+        </ul>
+        <!-- <select name="select_author_all"> -->
+            <!-- {% for 1 in all_author_name %}
+                <option value="">{{ 1.first_name }} {{ 1.last_name }}</option>
+            {% endfor %}
+        </select> -->
+        <form action="/process" method="post">
+            {% csrf_token %}
+            <select name="author_id">
+                    {% for ppp in all_author_name %}
+                        <option value="{{ ppp.id }}">{{ ppp.first_name }} {{ ppp.last_name }}</option>
+                    {% endfor %}
+            </select>
+            <input type="hidden" name="book_id" value="{{ book.id }}">
+            <input type="submit" value="add">
+        </form>  
+           
+           <!-- <button type="submit">Add</button> -->
+            <!-- I need to put button and input -->
+
+         
+       
+    
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static %}	
+		<link rel="stylesheet" href="{% static 'users_app/css/style.css' %}"> 
+		<link rel="stylesheet" href="{% static 'users_app/css/fancybox.css' %}">    
+		<!-- <script src="{% static 'users_app/js/script.js' %}"></script>
+		<script src="{% static 'users_app/js/iquery.js' %}"></script>
+		<script src="{% static 'users_app/js/imageTools.js' %}"></script>
+		<script src="{% static 'users_app/js/fancybox.js' %}"></script>
+		<!-- client -->
+		<!-- <script src="{% static 'users_app/js/client/apiGatewayClient.js' %}"></script>
+		<script src="{% static 'users_app/js/client/apiClient.js' %}"></script>
+		<script src="{% static 'users_app/js/client/axios.standalone.js' %}"></script>
+		<script src="{% static 'users_app/js/client/enc-base64.js' %}"></script>
+		<script src="{% static 'users_app/js/client/hmac-sha256.js' %}"></script>
+		<script src="{% static 'users_app/js/client/hmac.js' %}"></script>
+		<script src="{% static 'users_app/js/client/sha256.js' %}"></script>
+		<script src="{% static 'users_app/js/client/sigV4Client.js' %}"></script>
+		<script src="{% static 'users_app/js/client/simpleHttpClient.js' %}"></script>
+		<script src="{% static 'users_app/js/client/url-template.js' %}"></script>
+		<script src="{% static 'users_app/js/client/utils.js' %}"></script> --> -->
+		
+</head>
+<body>
+
+    <!-- <img src="{% static 'app_name/images/image.jpg' %}" /> -->
+
+    <div class="container">
+		<h1>Deep Art Effects - Turn Image Into Art</h1>
+		<div id="result">
+			<h2>Your artworks</h2>
+		<div id="artwork"></div>
+		</div>
+		<h2>1. Choose picture and quality</h2>
+		<select id="qualitySelect">
+		  <option value="512">Low Quality</option>
+		  <option value="1080" selected="selected">Medium Quality</option>
+		  <option value="1980">High Quality</option>
+		</select>
+		<label>
+          <input id="optimzeForPrint" type="checkbox" value="false">
+          Optimize for print
+        </label>
+        <label>
+          <input id="useOriginalColors" type="checkbox" value="false">
+          Use original colors
+        </label>
+		<div id="upload">
+			<input type="file" onchange="onFileSelected(event)">
+		</div>
+		<div id="progress-wrapper">
+			<img id="progressbar" src="{% static 'users_app/images/loading.gif' %}" alt="loading" />
+		</div>
+		<div id="styles">
+			<h2>2. Choose art style</h2>
+			<div id="style-list"></div>
+		</div>
+	</div>
+
+
+		<script type="text/javascript" src="{% static 'users_app/js/client/axios.standalone.js' %}"></script>
+		<script type="text/javascript" src="{% static 'users_app/js/client/hmac-sha256.js' %}"></script>
+		<script type="text/javascript" src="{% static 'users_app/js/client/sha256.js' %}"></script>
+		<script type="text/javascript" src="{% static 'users_app/js/client/hmac.js' %}"></script>
+		<script type="text/javascript" src="{% static 'users_app/js/client/enc-base64.js' %}"></script>
+		<script type="text/javascript" src="{% static 'users_app/js/client/url-template.js' %}"></script>
+		<script type="text/javascript" src="{% static 'users_app/js/client/sigV4Client.js' %}"></script>
+		<script type="text/javascript" src="{% static 'users_app/js/client/apiGatewayClient.js' %}"></script>
+		<script type="text/javascript" src="{% static 'users_app/js/client/simpleHttpClient.js' %}"></script>
+		<script type="text/javascript" src="{% static 'users_app/js/client/utils.js' %}"></script>
+		<script type="text/javascript" src="{% static 'users_app/js/client/apigClient.js' %}"></script>
+
+		
+		
+		
+		
+
+    	<!-- JQuery lib -->
+	<script src="{% static 'users_app/js/jquery.js' %}"></script> -->
+
+	<!-- Fancybox for artwork preview -->
+	<!-- <script src="{% static 'users_app/js/fancybox.js' %}"></script> -->
+
+	<!-- Image tools -->
+	<script src="{% static 'users_app/js/imageTools.js' %}"></script>
+
+	<!-- Site script-->
+	<script src="{% static 'users_app/js/scripts.js' %}"></script>
+
+
+
+    
+</body>
+</html>

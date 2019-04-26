@@ -1,0 +1,38 @@
+#################################################### 
+first method
+#################################################### 
+from django.shortcuts import render, HttpResponse, redirect
+from .models import Book, Author
+
+def index(request):
+    context = {
+    	"books": Book.objects.all()
+    }
+    return render(request, "users_app/index.html", context)
+#################################################### 
+<id> + rendering  id = to pick up spwxific information
+#################################################### 
+def books(request,idr):
+    context = {
+        "book":Book.objects.get(id=idr),
+        "author_name":Book.objects.get(id=idr).authors.all().values(),
+        "all_author_name":Author.objects.all().values(),
+    }
+    print(context["author_name"])
+    return render(request, "users_app/books.html",context)
+#################################################### 
+process (many to many)
+#################################################### 
+def process(request):
+    if request.method == "POST":
+        data = {
+            "a_id": request.POST["author_id"],
+            "b_id": request.POST["book_id"],
+        }
+        this_book = Book.objects.get(id=data["a_id"])
+        this_author = Author.objects.get(id=data["b_id"])
+        this_author.books.add(this_book)
+        return redirect("/")
+#################################################### 
+
+#################################################### 

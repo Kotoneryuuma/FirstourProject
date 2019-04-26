@@ -1,0 +1,23 @@
+####################################################
+form (many to many) with select button with hidden input
+####################################################
+<form action="/process/authors" method="post">
+    {% csrf_token %}
+    <select name="book_id">
+        {% for ppp in all_book_titles %}
+            <option value="{{ ppp.id }}">{{ ppp.title }}</option>
+        {% endfor %}
+    </select>
+    <input type="hidden" name="author_id" value="{{ author.id }}">  ###############to grab author id 
+    <input type="submit" value="add">
+</form> 
+#################################################### 
+form with normal button
+#################################################### 
+<form action="/authors" method="post">
+    {% csrf_token %}
+    <p>First Name: <input name="author_first_name" type="text"></p>
+    <p>Last Name: <input name="author_last_name" type="text"></p>
+    <p>Notes: <input name="author_notes" type="text"></p>
+    <button type="submit">Add</button>
+</form>
